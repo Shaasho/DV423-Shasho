@@ -20,6 +20,7 @@ void GuessMyNumber::Start_Guess_My_Number()
     bool second_menu = true;
     int userNumber = 0;
     int difference = 0;
+    int attempts = 0;
 
     std::cout << "What's up buddy!! Wanna guess my number??\n";
 
@@ -63,6 +64,7 @@ void GuessMyNumber::Start_Guess_My_Number()
                     }
                 }
             }
+            attempts++;
             first_menu = true;
         }
         if (userNumber > randomNumber) {
@@ -87,12 +89,14 @@ void GuessMyNumber::Start_Guess_My_Number()
                     }
                 }
             }
+            attempts++;
             first_menu = true;
         }
         //The user guesses the number
         if (userNumber == randomNumber) {
             SetConsoleTextAttribute(console, FOREGROUND_GREEN | FOREGROUND_INTENSITY); // Set text color to green
-            std::cout << "\nYOU GOT IT MATE! \nIt was " << userNumber << " indeed!!\n";
+            attempts++;
+            std::cout << "\nYOU GOT IT MATE! \nIt was " << userNumber << " indeed!! and it only took you " << attempts << " attempts!\n";
             second_menu = false;
         }
 
